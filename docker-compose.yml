@@ -1,0 +1,10 @@
+version: "2.1"
+services:
+  prometheus_eksporterhtml:
+    image: prometheusapsystem:latest
+    container_name: prometheus_apsystem
+    ports:
+      - 5000:5000
+    environment:
+        - HOST=http://192.168.1.24
+    restart: unless-stopped
