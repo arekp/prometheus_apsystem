@@ -1,0 +1,8 @@
+model.json
+Scripts
+Lib
+Include
+pyvenv.cfg
+NOTATKA
+.env
+__pycache__/prometheus_apsystem.cpython-39.pyc
