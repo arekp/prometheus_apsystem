@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- 兼容IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 支持国产浏览器高速模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- 响应式布局 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">   
+
+    <title>Altenergy Power Control Software</title>
+    <link type="image/x-icon" href="http://192.168.1.24/resources/images/favicon.ico" rel="shortcut icon">    
+    <link href="http://192.168.1.24/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://192.168.1.24/resources/css/ecu-style.css" rel="stylesheet">
+    <link href="http://192.168.1.24/resources/css/bootstrapValidator.css" rel="stylesheet">    
+    <!--[if lt IE 8]>
+      <link href="http://192.168.1.24/resources/css/bootstrap-ie7.css" rel="stylesheet">
+    <![endif]-->
+    
+    <script src="http://192.168.1.24/resources/js/jquery-1.8.2.min.js"></script>
+    <script src="http://192.168.1.24/resources/js/bootstrap.min.js"></script>
+    <script src="http://192.168.1.24/resources/js/bootstrapValidator.min.js"></script>
+    <script src="http://192.168.1.24/resources/js/zDrag.js"></script>
+    <script src="http://192.168.1.24/resources/js/zDialog.js"></script>    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn"t work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->    
+  </head>
+
+  <body>
+    <!-- 顶部导航栏 -->
+    <header>
+      <div class="navbar navbar-default navbar-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" data-target="#navbar-header" data-toggle="collapse" type="button">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://www.altenergy-power.com">
+              <img src="http://192.168.1.24/resources/images/logo.png">
+            </a>
+          </div>
+          <div class="navbar-collapse collapse" id="navbar-header">
+            <ul class="nav navbar-nav navbar-title">
+              <li><a id="ecu_title">ENERGY COMMUNICATION UNIT</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <a class="btn chlang" id="english" >English</a>|
+              <a class="btn chlang" id="chinese" >Chinese</a>
+            </ul>
+          </div>
+        </div>
+      </div>     
+    </header>
+<!-- 菜单导航栏 -->
+<nav>
+    <div class="navbar navbar-default navbar-menu">
+        <div class="container">
+                    <p class="navbar-menu-title">Home</p>     
+            <div class="navbar-header">            
+                <button class="navbar-toggle" data-target="#navbar-menu" data-toggle="collapse" type="button">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                </button>
+            </div>
+            
+            <div class="navbar-collapse collapse" id="navbar-menu">
+                <ul class="nav navbar-nav ">
+                    <li><a href="http://192.168.1.24/index.php/home" class="active">Home</a></li>
+                    <li><a href="http://192.168.1.24/index.php/realtimedata">Real Time Data</a><span> </span></li>                    
+                    <li><a href="http://192.168.1.24/index.php/management">Administration</a><span> </span></li>
+                  
+                   
+                    <li><a href="http://192.168.1.24/index.php/meter/meter_power_graph">Advanced</a><span> </span></li>
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+        
+<section>
+    <div class="container container-main">
+        <!-- 侧边导航栏 -->
+        <aside class="col-md-3 col-md-push-9">
+            <div class="list-group">
+                                                    <a id="ecu_time" class="list-group-item align-center" ></a>
+                    <a class="list-group-item active align-center">ENVIRONMENTAL BENEFITS</a>
+                    <a class="list-group-item benefit align-center">CO<sub>2</sub> Offset Equivalent to</a>
+                    <a class="list-group-item benefit"><img src="http://192.168.1.24/resources/images/car.png"><div class="pull-right"><center>364<br>GALLONS</center></div></a>
+                    <a class="list-group-item benefit"><img src="http://192.168.1.24/resources/images/tree.png"><div class="pull-right"><center>161<br>TREES</center></div></a>
+                    <a class="list-group-item benefit"><img src="http://192.168.1.24/resources/images/carbon.png"><div class="pull-right"><center>3220<br>KG</center></div></a>
+                            </div>
+        </aside>
+        
+        <!-- 正文 -->
+        <article class="col-md-9 col-md-pull-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Home                                    </div>
+                                
+                <div class="panel-body">
+<table class="table table-condensed table-striped table-bordered">    
+    <tr>
+        <!-- ECU ID -->
+        <th scope="row" class="col-xs-6">ECU ID</th>
+        <td>215000005921</td>
+    </tr>        
+    <tr>
+        <!-- 历史发电量 -->
+        <th scope="row">Lifetime generation</th>
+        <td>4379.52 kWh </td>
+    </tr>
+    <tr>
+        <!-- 最近一次系统功率 -->
+        <th scope="row">Last System Power</th>
+        <td>389 W </td>
+    </tr>
+    <tr>
+        <!-- 系统当天累计发电量 -->
+        <th scope="row">Generation of Current Day</th>
+        <td>2.6 kWh </td>
+    </tr>
+    <tr>
+        <!-- 最近一次连接服务器时间 -->
+        <th scope="row">Last Connection to website</th>
+        <td>2021-07-13 10:47:08</td>
+    </tr>
+    <tr>
+        <!-- 逆变器总台数 -->
+        <th scope="row">Number of Inverters</th>
+        <td>4</td>
+    </tr>
+    <tr>
+        <!-- 最近一次逆变器连接台数 -->
+        <th scope="row">Last Number of Inverters Online</th>
+        <td>3</td>
+    </tr>
+    <tr>
+        <!-- 软件版本号 -->
+        <th scope="row">Current Software Version</th>
+        <td>C1.1.9</td>
+    </tr>
+    <tr>
+        <!-- 当前时区 -->
+        <th scope="row">Current Time Zone</th>
+        <td>Europe/Warsaw</td>
+    </tr>
+    <tr>
+        <!-- ECU有线网络Mac地址 -->
+        <th scope="row">ECU Eth0 Mac Address</th>
+        <td>80:97:1B:01:DA:F5</td>
+    </tr>
+    <!-- ECU无线网络Mac地址 -->
+           
+    <tr>
+        <th scope="row">ECU Wlan0 Mac Address</th>
+        <td>60:C5:A8:76:EA:1A</td>
+    </tr>
+           
+</table>
+
+<script>
+var weekday_en = new Array(7);
+    weekday_en[0]="Sunday";
+    weekday_en[1]="Monday";
+    weekday_en[2]="Tuesday";
+    weekday_en[3]="Wednesday";
+    weekday_en[4]="Thursday";
+    weekday_en[5]="Friday";
+    weekday_en[6]="Saturday";
+var weekday_ch = new Array(7);
+    weekday_ch[0]="星期日";
+    weekday_ch[1]="星期一";
+    weekday_ch[2]="星期二";
+    weekday_ch[3]="星期三";
+    weekday_ch[4]="星期四";
+    weekday_ch[5]="星期五";
+    weekday_ch[6]="星期六";
+var today = new Date();
+    today.setFullYear(2021
+);
+    today.setMonth(6);
+    today.setDate(13
+); 
+    today.setHours(10
+);
+    today.setMinutes(47
+);
+    today.setSeconds(42
+);
+var timestamp =  today.getTime();
+
+/* 显示实时时间 */
+runTime();     
+    	  
+function runTime() {
+    setTimeout(runTime, 1000);
+    timestamp = timestamp + 1000;
+    today.setTime(timestamp);     
+    showTime();
+}
+  
+function showTime() {
+    var year, month, date, hour, minute, second, day;
+    year = today.getFullYear();
+    month = today.getMonth() + 1; 
+    date = today.getDate(); 
+    hour = today.getHours(); 
+    minute = today.getMinutes(); 
+    second = today.getSeconds();
+    day = today.getDay();  
+    if (month < 10) { month = "0" + month;}
+    if (date < 10) { date = "0" + date;}  
+    if (hour < 10) { hour = "0" + hour;}
+    if (minute < 10) { minute = "0" + minute;}
+    if (second < 10) { second = "0" + second;}
+    if (/[\u4E00-\u9FA5]/i.test($("#ecu_title").html())) {
+        $('#ecu_time').html(year + "年" + month + "月" + date + "日 " + hour + ":" + minute + ":" + second + "<br>" + weekday_ch[day]); 
+    }
+    else {
+        $('#ecu_time').html(year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second + "<br>" + weekday_en[day]); 
+    }
+}
+</script>
+            </div>
+          </div>
+    	</article>
+      </div>
+    </section>
+    <footer class="footer">&copy; 2015 Altenergy Power System Inc.</footer>
+    <script>
+        /* 指定5分钟刷新一次 */
+        function myrefresh() {
+            window.location.reload();
+        }
+        setTimeout('myrefresh()',300000); 
+         	
+    /* 切换语言 */
+        $(".chlang").click(function(){
+            $.ajax({
+                url : "http://192.168.1.24/index.php/management/set_language",
+                type : "post",
+                dataType : "json",
+                data: "language=" + $(this).attr("id"),
+            })
+            setTimeout("location.reload();",500);//刷新页面
+        });
+    </script>
+    </body>
+</html>

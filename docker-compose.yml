@@ -1,7 +1,7 @@
 version: "2.1"
 services:
   prometheus_eksporterhtml:
-    image: prometheusapsystem:latest
+    image: arekp/prometheusapsystems:latest
     container_name: prometheus_apsystem
     ports:
       - 5000:5000

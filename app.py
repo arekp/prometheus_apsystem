@@ -8,6 +8,7 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
+
 CONTENT_TYPE_LATEST = str('text/plain; version=0.0.4; charset=utf-8')
 
 @app.route('/metrics', methods=['GET'])

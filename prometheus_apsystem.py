@@ -51,13 +51,13 @@ def text(elt):
         a = re.findall("\d+", obiekt)[0]
     if obiekt.find("V") != -1:
         a = re.findall("\d+", obiekt)[0]
-        # obiekt = (f"napiecie:{a}")
+        # obiekt = (f"Voltage:{a}")
     if (obiekt.find("C") != -1):
         a = re.findall("\d+", obiekt)[0]
-        # obiekt = (f"temperatura:{a}")
+        # obiekt = (f"Temperature:{a}")
     if (obiekt.find("Hz") != -1):
         a = re.findall("\d+", obiekt)[0]
-        obiekt = (f"czestotliwosc:{a}")
+        obiekt = (f"Frequency:{a}")
     if len(re.findall("\d+-\d+-\d+", obiekt)) == 1:
         a = obiekt.replace('\n', '')
         # obiekt = (f"data:{a}")
@@ -81,9 +81,13 @@ def tablica():
         return tabl
     else:
         print(f'mamy strone tablica')
+    return converttab(x)
+
+def converttab(x):
+    tabl=[]
     root = html.fromstring(x.content)
-    lista = ['falowing-panel', 'moc', 'czestotliwosc', 'napiecie', 'temperatura', 'data']
-    listb = ['falowing-panel', 'moc', 'napiecie']
+    lista = ['falowing-panel', 'Power', 'Frequency', 'Voltage', 'Temperature', 'data']
+    listb = ['falowing-panel', 'Power', 'Voltage']
     for table in root.xpath('//table/tbody'):
         i = 0
         for tr in table.xpath('//tr[count(*) > 2]'):
@@ -132,24 +136,24 @@ def stronaglowna(registry):
     c.set(b)
     g = Gauge('panele_LastSystemPower', 'Last System Power', registry=registry)
     g.set(a)  # Set to a given value
-    nap = Gauge('panele_Napiecie', 'Napiecie na panelu', ['falownik', 'panel'], registry=registry)
-    moc = Gauge('panele_Moc', 'moc na panelu', ['falownik', 'panel'], registry=registry)
-    temp = Gauge('panele_Temp', 'Temperatura na panelu', ['falownik'], registry=registry)
-    czest = Gauge('panele_Czestotliwosc', 'Czestotliwosc na panelu', ['falownik'], registry=registry)
+    nap = Gauge('panele_Voltage', 'Voltage na panelu', ['Inverter', 'panel'], registry=registry)
+    Power = Gauge('panele_Power', 'Power na panelu', ['Inverter', 'panel'], registry=registry)
+    temp = Gauge('panele_Temp', 'Temperature na panelu', ['Inverter'], registry=registry)
+    czest = Gauge('panele_Frequency', 'Frequency na panelu', ['Inverter'], registry=registry)
 
     for wpis in tablica():
         if wpis['falowing-panel'] != '' and len(wpis) == 6:
             fal = wpis['falowing-panel'].split("-")[0]
             pan = wpis['falowing-panel'].split("-")[1]
-            nap.labels(falownik=fal, panel=pan).set(wpis['napiecie'])
-            moc.labels(falownik=fal, panel=pan).set(wpis['moc'])
-            temp.labels(falownik=fal).set(wpis['temperatura'])
-            czest.labels(falownik=fal).set(wpis['czestotliwosc'])
+            nap.labels(Inverter=fal, panel=pan).set(wpis['Voltage'])
+            Power.labels(Inverter=fal, panel=pan).set(wpis['Power'])
+            temp.labels(Inverter=fal).set(wpis['Temperature'])
+            czest.labels(Inverter=fal).set(wpis['Frequency'])
         if wpis['falowing-panel'] != '' and len(wpis) == 3:
             fal = wpis['falowing-panel'].split("-")[0]
             pan = wpis['falowing-panel'].split("-")[1]
-            nap.labels(falownik=fal, panel=pan).set(wpis['napiecie'])
-            moc.labels(falownik=fal, panel=pan).set(wpis['moc'])
+            nap.labels(Inverter=fal, panel=pan).set(wpis['Voltage'])
+            Power.labels(Inverter=fal, panel=pan).set(wpis['Power'])
     return registry
 
 
