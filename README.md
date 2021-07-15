@@ -61,54 +61,53 @@ Once `prometheus_APsystems` has been started, with either Docker
 APsystems can be instrumented with [cURL](https://curl.haxx.se).
 
 ```shell
-$ curl localhost:5000/metrics
 # HELP panele_lifetimegeneration Lifetime Generation
 # TYPE panele_lifetimegeneration gauge
-panele_lifetimegeneration 4335.2
+panele_lifetimegeneration 4430.9
 # HELP panele_generationcurrentday Generation Current of Day
 # TYPE panele_generationcurrentday gauge
-panele_generationcurrentday 20.56
+panele_generationcurrentday 11.92
 # HELP panele_LastSystemPower Last System Power
 # TYPE panele_LastSystemPower gauge
-panele_LastSystemPower 468.0
-# HELP panele_Napiecie Napiecie na panelu
-# TYPE panele_Napiecie gauge
-panele_Napiecie{falownik="801000026000",panel="1"} 237.0
-panele_Napiecie{falownik="801000026000",panel="2"} 237.0
-panele_Napiecie{falownik="801000026000",panel="3"} 237.0
-panele_Napiecie{falownik="801000026000",panel="4"} 237.0
-panele_Napiecie{falownik="801000074230",panel="1"} 235.0
-panele_Napiecie{falownik="801000074230",panel="2"} 235.0
-panele_Napiecie{falownik="801000074230",panel="3"} 235.0
-panele_Napiecie{falownik="801000074230",panel="4"} 235.0
-panele_Napiecie{falownik="801000030076",panel="1"} 234.0
-panele_Napiecie{falownik="801000030076",panel="2"} 234.0
-panele_Napiecie{falownik="801000030076",panel="3"} 234.0
-panele_Napiecie{falownik="801000030076",panel="4"} 234.0
-# HELP panele_Moc moc na panelu
-# TYPE panele_Moc gauge
-panele_Moc{falownik="801000026000",panel="1"} 32.0
-panele_Moc{falownik="801000026000",panel="2"} 41.0
-panele_Moc{falownik="801000026000",panel="3"} 0.0
-panele_Moc{falownik="801000026000",panel="4"} 45.0
-panele_Moc{falownik="801000074230",panel="1"} 36.0
-panele_Moc{falownik="801000074230",panel="2"} 43.0
-panele_Moc{falownik="801000074230",panel="3"} 46.0
-panele_Moc{falownik="801000074230",panel="4"} 46.0
-panele_Moc{falownik="801000030076",panel="1"} 43.0
-panele_Moc{falownik="801000030076",panel="2"} 43.0
-panele_Moc{falownik="801000030076",panel="3"} 47.0
-panele_Moc{falownik="801000030076",panel="4"} 46.0
-# HELP panele_Temp Temperatura na panelu
+panele_LastSystemPower 745.0
+# HELP panele_Voltage Voltage na panelu
+# TYPE panele_Voltage gauge
+panele_Voltage{Inverter="801000026000",panel="1"} 235.0
+panele_Voltage{Inverter="801000026000",panel="2"} 235.0
+panele_Voltage{Inverter="801000026000",panel="3"} 235.0
+panele_Voltage{Inverter="801000026000",panel="4"} 235.0
+panele_Voltage{Inverter="801000074230",panel="1"} 235.0
+panele_Voltage{Inverter="801000074230",panel="2"} 235.0
+panele_Voltage{Inverter="801000074230",panel="3"} 235.0
+panele_Voltage{Inverter="801000074230",panel="4"} 235.0
+panele_Voltage{Inverter="801000030076",panel="1"} 234.0
+panele_Voltage{Inverter="801000030076",panel="2"} 234.0
+panele_Voltage{Inverter="801000030076",panel="3"} 234.0
+panele_Voltage{Inverter="801000030076",panel="4"} 234.0
+# HELP panele_Power Power na panelu
+# TYPE panele_Power gauge
+panele_Power{Inverter="801000026000",panel="1"} 64.0
+panele_Power{Inverter="801000026000",panel="2"} 65.0
+panele_Power{Inverter="801000026000",panel="3"} 0.0
+panele_Power{Inverter="801000026000",panel="4"} 69.0
+panele_Power{Inverter="801000074230",panel="1"} 66.0
+panele_Power{Inverter="801000074230",panel="2"} 66.0
+panele_Power{Inverter="801000074230",panel="3"} 70.0
+panele_Power{Inverter="801000074230",panel="4"} 69.0
+panele_Power{Inverter="801000030076",panel="1"} 67.0
+panele_Power{Inverter="801000030076",panel="2"} 67.0
+panele_Power{Inverter="801000030076",panel="3"} 71.0
+panele_Power{Inverter="801000030076",panel="4"} 71.0
+# HELP panele_Temp Temperature na panelu
 # TYPE panele_Temp gauge
-panele_Temp{falownik="801000026000"} 39.0
-panele_Temp{falownik="801000074230"} 38.0
-panele_Temp{falownik="801000030076"} 42.0
-# HELP panele_Czestotliwosc Czestotliwosc na panelu
-# TYPE panele_Czestotliwosc gauge
-panele_Czestotliwosc{falownik="801000026000"} 50.0
-panele_Czestotliwosc{falownik="801000074230"} 50.0
-panele_Czestotliwosc{falownik="801000030076"} 50.0
+panele_Temp{Inverter="801000026000"} 30.0
+panele_Temp{Inverter="801000074230"} 32.0
+panele_Temp{Inverter="801000030076"} 32.0
+# HELP panele_Frequency Frequency na panelu
+# TYPE panele_Frequency gauge
+panele_Frequency{Inverter="801000026000"} 50.0
+panele_Frequency{Inverter="801000074230"} 50.0
+panele_Frequency{Inverter="801000030076"} 50.0
 ```
 
 You can also visit <http://localhost:5000> in your browser to see the same
