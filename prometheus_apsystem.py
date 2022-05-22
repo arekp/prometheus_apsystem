@@ -87,14 +87,24 @@ def converttab(x):
     tabl=[]
     root = html.fromstring(x.content)
     lista = ['falowing-panel', 'Power', 'Frequency', 'Voltage', 'Temperature', 'data']
+    listc = ['falowing-panel', 'Power', 'VoltageDC', 'Frequency', 'Voltage', 'Temperature', 'data']
     listb = ['falowing-panel', 'Power', 'Voltage']
+    listd = ['falowing-panel', 'Power','VoltageDC', 'Voltage']
     for table in root.xpath('//table/tbody'):
         i = 0
         for tr in table.xpath('//tr[count(*) > 2]'):
+            if (len(tr) == 7):
+                dane = list(text(td) for td in tr.xpath('td'))
+                if len(dane) == 7:
+                    tabl.append(dict(zip(listc, dane)))
             if (len(tr) == 6):
                 dane = list(text(td) for td in tr.xpath('td'))
                 if len(dane) == 6:
                     tabl.append(dict(zip(lista, dane)))
+            if (len(tr) == 4):
+                dane = list(text(td) for td in tr.xpath('td'))
+                if len(dane) == 4:
+                    tabl.append(dict(zip(listd, dane)))
             if (len(tr) == 3):
                 dane = list(text(td) for td in tr.xpath('td'))
                 if len(dane) == 3:
