@@ -147,13 +147,13 @@ your local machine for development and testing purposes.
 1. Building image
 
    ```shell
-   docker build -t prometheus_APsystems:latest .
+   docker build -t prometheus_apsystems:latest .
    ```
 
 1. Running
 
    ```shell
-   docker run --rm -d --name prometheus_APsystems -p 5000:5000/tcp --env HOST=http://192.168.1.24 prometheus_APsystems:latest
+   docker run --rm -d --name prometheus_apsystems -p 5000:5000/tcp --env HOST=http://192.168.1.24 prometheus_apsystems:latest
    ```
 
 ### Perform a APsystems

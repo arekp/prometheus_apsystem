@@ -147,22 +147,25 @@ def stronaglowna(registry):
     g = Gauge('panele_LastSystemPower', 'Last System Power', registry=registry)
     g.set(a)  # Set to a given value
     nap = Gauge('panele_Voltage', 'Voltage na panelu', ['Inverter', 'panel'], registry=registry)
+    napdc = Gauge('panele_Voltage_DC', 'Voltage DC na panelu', ['Inverter', 'panel'], registry=registry)
     Power = Gauge('panele_Power', 'Power na panelu', ['Inverter', 'panel'], registry=registry)
     temp = Gauge('panele_Temp', 'Temperature na panelu', ['Inverter'], registry=registry)
     czest = Gauge('panele_Frequency', 'Frequency na panelu', ['Inverter'], registry=registry)
 
     for wpis in tablica():
-        if wpis['falowing-panel'] != '' and len(wpis) == 6:
+        if wpis['falowing-panel'] != '' and len(wpis) == 7:
             fal = wpis['falowing-panel'].split("-")[0]
             pan = wpis['falowing-panel'].split("-")[1]
             nap.labels(Inverter=fal, panel=pan).set(wpis['Voltage'])
+            napdc.labels(Inverter=fal, panel=pan).set(wpis['VoltageDC'])
             Power.labels(Inverter=fal, panel=pan).set(wpis['Power'])
             temp.labels(Inverter=fal).set(wpis['Temperature'])
             czest.labels(Inverter=fal).set(wpis['Frequency'])
-        if wpis['falowing-panel'] != '' and len(wpis) == 3:
+        if wpis['falowing-panel'] != '' and len(wpis) == 4:
             fal = wpis['falowing-panel'].split("-")[0]
             pan = wpis['falowing-panel'].split("-")[1]
             nap.labels(Inverter=fal, panel=pan).set(wpis['Voltage'])
+            napdc.labels(Inverter=fal, panel=pan).set(wpis['VoltageDC'])
             Power.labels(Inverter=fal, panel=pan).set(wpis['Power'])
     return registry
 
